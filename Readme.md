@@ -1,5 +1,9 @@
 # Configurar Docker
 
+En primer lugar, hay que tener en cuenta que desde 'gateway' se configure el puerto en el index.js
+
+Correr Docker Desktop
+
 ## Dockerfile 
 
 Crear en cada una de las carpetas principales del gateway y de cada microservicio, los siguientes archivos:
@@ -9,7 +13,7 @@ Crear en cada una de las carpetas principales del gateway y de cada microservici
 
 ## Creación de imagen y contenedor de Docker para nuestro Gateway y cada microservicio (characters, films, planets), exponiendo su puerto
 
-En la carpeta de cada aplicación, ejecutar los siguientes comandos, 
+En la carpeta de cada microservicio, ejecutar los siguientes comandos, 
 donde nombre es el nombre de cada alicación, por ejemplo: gateway, characters, films,
 planets. no olvidar colocar el punto al final de la instrucción.
 
@@ -28,8 +32,10 @@ En la carpeta que contiene gateway y todos los microservicios, ejecutar el sigui
     docker network create starwars
 
 . Hay que reemplazar "localhost" por el nombre de cada microservicio en gateway.
-. Eliminar parar el servidor de gateway y eliminar imagen de gateway.
-. Volver a crear imagen de gateway (eliminando la anterior)
+. Cuando se realizan cambios en un microservicio, en este caso en el gateway:
+    - parar el servidor de gateway y eliminar imagen de gateway.
+    - Volver a crear imagen de gateway (eliminando la anterior)
+
 . En la carpeta gateway:
     * Ejecutar el siguiente comando para conectar el gateway a la red:
 
@@ -43,3 +49,4 @@ En la carpeta que contiene gateway y todos los microservicios, ejecutar el sigui
 
         docker run --network=starwars --name=planets -p 8003:8003 planets
 
+        docker run --network=starwars --name=database -p 8004:8004 database
