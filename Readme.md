@@ -1,169 +1,48 @@
-# Configurar Docker
+# Microservicios
 
-**IMPORTANTE: Correr Docker Desktop**
+Esta app ha sido desarrollada durante el curso de **HENRY - Upskilling Backend**
 
-En primer lugar, hay que tener en cuenta que desde 'gateway' se configure el puerto en el index.js
+## Módulo 1: Microservicios y configuración de Docker
 
-## 1. Dockerfile 
+- Una de las principales características de la arquitectura de microservicios es la comunicación a través de interfaces bien definidas. Los microservicios se comunican entre sí a través de interfaces, como API RESTful, mensajes asincrónicos o eventos, lo que permite una mayor desacoplamiento entre los servicios y facilita la integración y evolución de la aplicación en el tiempo. 
 
-Crear en cada una de las carpetas principales del gateway y de cada microservicio, los siguientes archivos:
+- Docker: "Es una plataforma de virtualización a nivel de sistema operativo que permite la creación, empaquetado y distribución de aplicaciones en contenedores. Los contenedores Docker son aislados y encapsulan todo lo necesario para que una aplicación se ejecute de manera consistente en cualquier entorno, independientemente de las diferencias en la infraestructura subyacente." RedHat.com
 
-    - Dockerfile
-    - .dockerignore
+### => [Configurando Docker](docs/docker-configuration.md)
 
-## 2. Creación de imagen y contenedor de Docker para nuestro Gateway y cada microservicio (characters, films, planets), exponiendo su puerto
+## Módulo 2: MongoDB y MongoDB Atlas 
 
-En la carpeta de cada microservicio, ejecutar los siguientes comandos, 
-donde nombre es el nombre de cada alicación, por ejemplo: gateway, characters, films,
-planets. no olvidar colocar el punto al final de la instrucción.
-
-    docker build -t nombre .
-ej:
-    docker build -t characters .
-    docker build -t films . 
-    docker build -t planets .
-    docker build -t gateway .
-    docker build -t database .
-
-luego, ejecutar el siguiente comando, donde puerto es el que corresponda a
- localhost y al de Docker (se recomienda colocar el mismo)  y nombre es el que
- corresponda a cada aplicación
- 
-    docker run -p puerto:puerto nombre
-ej:
-    docker run -p 8000:8000 gateway
-    docker run -p 8001:8001 characters
-    docker run -p 8002:8002 films
-    docker run -p 8003:8003 planets
-    docker run -p 8004:8004 database
+- Integrar una Base de Datos No SQL, como MongoDB, en una arquitectura de microservicios.
+Crear y configurar un cluster de datos de MongoDB en MongoDB Atlas, utilizando las herramientas disponibles en la capa gratuita.
+- Delegar la comunicación de datos a un microservicio especializado, separando así la lógica de las consultas a la Base de Datos de los demás microservicios.
+- Utilizar la librería Mongoose para comunicarte con la Base de Datos MongoDB desde Javascript.
 
 
-## 3. Creación de una red virtual a la cual se conectarán nuestros contenedores
-En la carpeta que contiene gateway y todos los microservicios, ejecutar el siguiente comando:
+## Módulo 3: Docker Compose
 
-    docker network create starwars
+- Comprender el proceso de despliegue de una aplicación utilizando Docker Compose.
+- Orquestar microservicios utilizando Docker Compose para asegurar un funcionamiento unificado en una Máquina Virtual.
+- Desplegar la aplicación de manera efectiva y exitosa.
 
-. Hay que reemplazar "localhost" por el nombre de cada microservicio en gateway.
-. Cuando se realizan cambios en un microservicio, en este caso en el gateway:
-    - parar el servidor de gateway y eliminar imagen de gateway.
-    - Volver a crear imagen de gateway (eliminando la anterior)
+### Ventajas de Docker Compose
 
-. En la carpeta gateway:
-    * Ejecutar el siguiente comando para conectar el gateway a la red:
+1. Simplifica la administración de aplicaciones en entornos de desarrollo, pruebas y producción.
+2. Permite crear y arrancar todos los contenedores definidos en el archivo de configuración con comandos simples.
+3. Facilita la detención y eliminación de todos los contenedores y recursos asociados.
+4. Es portátil, lo que permite compartir el archivo de configuración con otros miembros del equipo.
+5. Permite la colaboración y la replicación del entorno de desarrollo en diferentes máquinas.
+6. Es compatible con diferentes plataformas.
+7. Se integra fácilmente con otras herramientas de Docker, como Docker Swarm o Kubernetes.
+8. Permite gestionar entornos de producción más complejos.
 
-        docker run --network=starwars --name=gateway -p 8000:8000 gateway
+### => [Configurando Docker Compose](docs/docker-compose.md)
 
-. En la carpeta de cada microservicio:
+### Máquinas virtuales
 
-        docker run --network=starwars --name=characters -p 8001:8001 characters
-        docker run --network=starwars --name=films -p 8002:8002 films
-        docker run --network=starwars --name=planets -p 8003:8003 planets
-        docker run --network=starwars --name=database -p 8004:8004 database
+Una máquina virtual (VM, por sus siglas en inglés) es una representación virtual de un sistema informático completo, que incluye hardware y software, y que se ejecuta en un entorno aislado dentro de un host físico. 
 
+Una máquina virtual consta de dos componentes principales: el *hipervisor* y la *imagen* de la máquina virtual.
 
-# Docker Compose
+Las máquinas virtuales se utilizan ampliamente en entornos de servidores para consolidar infraestructuras, mejorar la flexibilidad, facilitar la migración y aumentar la eficiencia energética. También son útiles para el desarrollo y la prueba de aplicaciones, ya que permiten la creación de entornos aislados y reproducibles.
 
-## 1. Crear el archivo docker-compose.yml
-
-Definir en la carpeta raíz del proyecto el archivo que contiene la siguiente configuración:
-
-```
-# versión de Docker
-version: '3'
-
-services:
-  gateway:
-    container_name: gateway
-    restart: always
-    build: ./gateway
-    ports: 
-      - "8000:8000"
-
-  characters:
-    container_name: characters
-    restart: always
-    build: ./characters
-    ports: 
-      - ":8001"
-      
-  films:
-    container_name: films
-    restart: always
-    build: ./films
-    ports: 
-      - ":8002"
-        
-  planets:
-    container_name: planets
-    restart: always
-    build: ./planets
-    ports: 
-      - ":8003"
-          
-  database:
-    container_name: database
-    restart: always
-    build: ./database
-    ports: 
-      - ":8004"
-
-```
-
-## 2. En el directorio raíz, correr los siguientes comandos desde consola
-
-        docker-compose build
-
-        docker compose up
-
-    y ya están configurados y corriendo nuestros sevicios en el PUERTO LOCAL!!
-
-
-
-# Correr el proyecto en la NUBE
-
-## 1. Modificar los puertos en el archivo docker-compose.yml
-
-```
-# versión de Docker
-version: '3'
-
-services:
-  gateway:
-    container_name: gateway
-    restart: always
-    build: ./gateway
-    ports: 
-      - "8000:8000"
-
-  characters:
-    container_name: characters
-    restart: always
-    build: ./characters
-    ports: 
-      - "8001:8001"
-      
-  films:
-    container_name: films
-    restart: always
-    build: ./films
-    ports: 
-      - "8002:8002"
-        
-  planets:
-    container_name: planets
-    restart: always
-    build: ./planets
-    ports: 
-      - "8003:8003"
-          
-  database:
-    container_name: database
-    restart: always
-    build: ./database
-    ports: 
-      - "8004:8004"
-
-```
-
-## 2. IMPORTANTE: subir el proyecto a GitHub para que lo pueda tomar la máquina virtual (VM) 
-
+### => [Configurando VM - Google Cloud](docs/vm-google-cloud.md)
