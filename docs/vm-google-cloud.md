@@ -68,14 +68,14 @@ services:
   - Seleccionar de la pestaña **SSH** la opción **"Abrir en otra ventana del navegador"**
 
   - Ahora nos muestra la Consola de nuestra VM, acá debemos ejecutar los siguientes comandos, que es todo lo que necesita nuestra app para correr:
+ 
+        sudo apt update
 
-    1°-> sudo apt update
+        sudo apt install git
 
-    2°-> sudo apt install git
+        sudo apt install docker.io
 
-    3°-> sudo apt install docker.io
-
-    4°-> sudo apt install docker-compose
+        sudo apt install docker-compose
 
 
 ### 3.3. Configurar GitHub para que podamos clonar el repo en la VM
