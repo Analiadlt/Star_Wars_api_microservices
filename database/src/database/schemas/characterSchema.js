@@ -1,6 +1,16 @@
 const { Schema } = require("mongoose");
 
 const characterSchema = new Schema({
+  // _id: {
+  //   type: String,
+  //   require: true,
+  //   unique: true,
+  // },
+  // name: {
+  //   type: String,
+  //   require: true,
+  //   unique: true,
+  // },
   _id: String,
   name: String,
   height: String,

@@ -1,6 +1,16 @@
 const { Schema } = require("mongoose");
 
 const filmSchema = new Schema({
+  // _id: {
+  //   type: String,
+  //   require: true,
+  //   unique: true,
+  // },
+  // title: {
+  //   type: String,
+  //   require: true,
+  //   unique: true,
+  // },
   _id: String,
   title: String,
   opening_crawl: String,
@@ -19,8 +29,8 @@ filmSchema.statics.list = async function () {
 
 filmSchema.statics.get = async function (id) {
   return await this.findById(id)
-  .populate("characters", ["_id", "name"])
-  .populate("planets", ["_id", "name"]);
+    .populate("characters", ["_id", "name"])
+    .populate("planets", ["_id", "name"]);
 };
 
 filmSchema.statics.insert = async function (film) {
