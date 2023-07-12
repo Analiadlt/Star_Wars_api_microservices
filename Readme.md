@@ -8,14 +8,14 @@ Esta app ha sido desarrollada durante el curso de **HENRY - Upskilling Backend**
 
 - Docker: "Es una plataforma de virtualización a nivel de sistema operativo que permite la creación, empaquetado y distribución de aplicaciones en contenedores. Los contenedores Docker son aislados y encapsulan todo lo necesario para que una aplicación se ejecute de manera consistente en cualquier entorno, independientemente de las diferencias en la infraestructura subyacente." RedHat.com
 
-### => [Configurando Docker](docs/docker-configuration.md)
+    ### => [Configurando Docker](docs/docker-configuration.md)
 
 ## Módulo 2: MongoDB y MongoDB Atlas 
 
 - Integrar una Base de Datos No SQL, como MongoDB, en una arquitectura de microservicios.
 Crear y configurar un cluster de datos de MongoDB en MongoDB Atlas, utilizando las herramientas disponibles en la capa gratuita.
 - Delegar la comunicación de datos a un microservicio especializado, separando así la lógica de las consultas a la Base de Datos de los demás microservicios.
-- Utilizar la librería Mongoose para comunicarte con la Base de Datos MongoDB desde Javascript.
+- Utilizar la librería Mongoose para comunicarse con la Base de Datos MongoDB desde Javascript.
 
 
 ## Módulo 3: Docker Compose
@@ -35,7 +35,7 @@ Crear y configurar un cluster de datos de MongoDB en MongoDB Atlas, utilizando l
 7. Se integra fácilmente con otras herramientas de Docker, como Docker Swarm o Kubernetes.
 8. Permite gestionar entornos de producción más complejos.
 
-### => [Configurando Docker Compose](docs/docker-compose.md)
+    ### => [Configurando Docker Compose](docs/docker-compose.md)
 
 ### Máquinas virtuales
 

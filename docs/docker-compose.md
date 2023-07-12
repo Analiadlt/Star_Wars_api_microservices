@@ -2,7 +2,7 @@
 
 ## 1. Definir el archivo docker-compose.yml
 
-Definir en la carpeta raíz del proyecto el archivo que contiene la siguiente configuración:
+Definir en la carpeta raíz del proyecto el archivo que contiene la siguiente configuración (importante: en los archivos yaml es muy importante la sangría, tener en cuenta que "services" está en un nivel superior y cada microservicio en un nivel inferior):
 
 ```
 # versión de Docker

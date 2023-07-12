@@ -94,7 +94,7 @@ services:
 
   5°- Para poder clonar el repo, debemos copiar el código que aparece en Code->Clone->SSH
 
-  6°- En la consola colocar el comando: **git clone** seguido del código que acabamos de copiar.
+  6°- En la consola de la VM, colocar el comando: **git clone** seguido del código que acabamos de copiar.
 
   7°- Ahora ya tenemos el repo clonado en la VM. Debemos crear el archivo **.env** que contiene la constante **MONGO_URI** para que se pueda conectar la DB a MongoDB. Para ésto, nos posicionamos en la carpeta **database** y corremos el siguiente comando que nos crea el archivo **.env**:
 

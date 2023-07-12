@@ -5,15 +5,15 @@
 
 - En primer lugar, hay que tener en cuenta que desde 'gateway' se configure el puerto en el index.js
 
-[Archivo index.js del microservicio **Gateway**](../gateway/index.js)
+    [Archivo index.js del microservicio **Gateway**](../gateway/index.js)
 
 ## 1. Dockerfile 
 
 Crear en cada una de las carpetas principales del gateway y de cada microservicio, los siguientes archivos:
 
-[Dockerfile](../gateway/index.js)
+=> [Dockerfile](../gateway/index.js)
 
-[.dockerignore](../gateway/.dockerignore)
+=> [.dockerignore](../gateway/.dockerignore)
 
 ## 2. Docker: Crear imagen y contenedor para cada microservicio
 
