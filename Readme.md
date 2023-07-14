@@ -2,13 +2,27 @@
 
 Esta app ha sido desarrollada durante el curso de **HENRY - Upskilling Backend**
 
+## Endpoints
+
+    http://localhost:8000/characters
+    http://localhost:8000/films
+    http://localhost:8000/planets
+
+## Tecnologías utilizadas:
+- NodeJS
+- Express
+- MongoDB
+- Mongoose
+- Docker
+
 ## Módulo 1: Microservicios y configuración de Docker
 
 - Una de las principales características de la arquitectura de microservicios es la comunicación a través de interfaces bien definidas. Los microservicios se comunican entre sí a través de interfaces, como API RESTful, mensajes asincrónicos o eventos, lo que permite una mayor desacoplamiento entre los servicios y facilita la integración y evolución de la aplicación en el tiempo. 
 
 - Docker: "Es una plataforma de virtualización a nivel de sistema operativo que permite la creación, empaquetado y distribución de aplicaciones en contenedores. Los contenedores Docker son aislados y encapsulan todo lo necesario para que una aplicación se ejecute de manera consistente en cualquier entorno, independientemente de las diferencias en la infraestructura subyacente." RedHat.com
 
-    ### => [Configurando Docker](docs/docker-configuration.md)
+- Para configurar Docker, consultar el siguiente documento:        
+    - [Configurando Docker](docs/docker-configuration.md)
 
 ## Módulo 2: MongoDB y MongoDB Atlas 
 
@@ -35,7 +49,8 @@ Crear y configurar un cluster de datos de MongoDB en MongoDB Atlas, utilizando l
 7. Se integra fácilmente con otras herramientas de Docker, como Docker Swarm o Kubernetes.
 8. Permite gestionar entornos de producción más complejos.
 
-    ### => [Configurando Docker Compose](docs/docker-compose.md)
+### Para configurar Docker Compose, consultar el siguiente documento:        
+ - [Configurando Docker Compose](docs/docker-compose.md)
 
 ### Máquinas virtuales
 
@@ -45,4 +60,5 @@ Una máquina virtual consta de dos componentes principales: el *hipervisor* y la
 
 Las máquinas virtuales se utilizan ampliamente en entornos de servidores para consolidar infraestructuras, mejorar la flexibilidad, facilitar la migración y aumentar la eficiencia energética. También son útiles para el desarrollo y la prueba de aplicaciones, ya que permiten la creación de entornos aislados y reproducibles.
 
-### => [Configurando VM - Google Cloud](docs/vm-google-cloud.md)
+### Para configurar VM en Google Cloud, consultar el siguiente documento:        
+- [Configurando VM - Google Cloud](docs/vm-google-cloud.md)
